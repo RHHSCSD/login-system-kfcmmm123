@@ -20,12 +20,14 @@ public class LoginFrame extends javax.swing.JFrame {
     
     private Login loginSystem;
 
-     public LoginFrame() {
+    /**
+     *
+     */
+    public LoginFrame() {
         initComponents();
-        // Initialize loginSystem here
+        // Initialize loginSystem 
         loginSystem = new Login();
         try {
-            // Optionally, load users from the file if your application logic requires it at this stage.
             loginSystem.loadUsers();
         } catch (FileNotFoundException e) {
             JOptionPane.showMessageDialog(this, "User data file not found.", "Error", JOptionPane.ERROR_MESSAGE);
