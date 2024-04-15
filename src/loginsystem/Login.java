@@ -15,7 +15,7 @@ public class Login {
      *
      */
     public Login() {
-        this.users = new ArrayList<>(); // Use diamond operator for simplicity
+        this.users = new ArrayList<>(); 
     }
     
     /**
@@ -162,7 +162,6 @@ public class Login {
             return isStrong;
         } catch (FileNotFoundException e) {
             System.err.println("File not found: " + e.getMessage());
-            throw e; // Rethrow exception after logging to handle it further up if necessary
         }
     }
 }

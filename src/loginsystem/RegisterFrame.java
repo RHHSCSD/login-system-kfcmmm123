@@ -165,8 +165,7 @@ public class RegisterFrame extends javax.swing.JFrame {
         try {
             boolean registrationSuccess = loginSystem.registerUser(user);
             if (registrationSuccess) {
-                // Close or hide the current Registration Frame
-                this.setVisible(false); // or this.dispose() if you want to close it
+                this.setVisible(false);
 
                 // Then show the Login Frame
                 LoginFrame loginFrame = new LoginFrame();
