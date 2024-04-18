@@ -25,7 +25,7 @@ public class Login {
      * @throws FileNotFoundException
      * @throws NoSuchAlgorithmException
      */
-    public boolean registerUser(User user) throws FileNotFoundException, NoSuchAlgorithmException {
+    public boolean registerUser(User user) throws FileNotFoundException, NoSuchAlgorithmException, IOException {
         //check if the name already exists
         if (!isUniqueName(user.getUserName())) {
             System.out.println("Registration failed: Username already exists.");
@@ -34,13 +34,14 @@ public class Login {
         
         //write the user's information into the file
         File f = new File("users.txt");
-        try (PrintWriter pw = new PrintWriter(new FileOutputStream(f, true))) {
+        try (PrintWriter pw = new PrintWriter(new FileWriter(f, true))) {
             pw.println(user.getUserName());
             pw.println(encryptPassword(user.getPassword())); // Store encrypted password
             pw.println(user.getEmail());
             pw.println(user.getPhoneNum());
             pw.println(user.getAge());
             pw.println(); // Separator line for each user
+            pw.close();
         } 
         System.out.println("Registration for " + user.getUserName() + " is successful");
         users.add(user); // Add the new user to the ArrayList
@@ -163,5 +164,6 @@ public class Login {
         } catch (FileNotFoundException e) {
             System.err.println("File not found: " + e.getMessage());
         }
+        return isStrong;
     }
 }

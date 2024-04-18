@@ -5,6 +5,7 @@
 package loginsystem;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 
 /**
@@ -43,6 +44,8 @@ public class LoginSystem {
             l.logUserIn("Peter", "1234567890");
             l.logUserIn("Hello", "12397yuoewq");
         } catch (FileNotFoundException | NoSuchAlgorithmException e) {
+            System.err.println("An error occurred: " + e.getMessage());
+        } catch (IOException e){
             System.err.println("An error occurred: " + e.getMessage());
         }
     }
